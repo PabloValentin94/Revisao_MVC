@@ -42,7 +42,7 @@
 
             $model = new ClientModel();
 
-            $model->id = $_POST["id"];
+            $model->id = $_GET["id"];
 
             $model->Remove();
 

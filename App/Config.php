@@ -2,9 +2,9 @@
 
     // PHP:
 
-    define("BASEDIR", dirname(__FILE__, 2) . "\\");
+    define("BASEDIR", str_replace("\\", "/", dirname(__FILE__, 2)) . "/");
 
-    define("VIEWS", dirname(__FILE__, 1) . "\\View\\Modules\\");
+    define("VIEWS", str_replace("\\", "/", dirname(__FILE__, 1)) . "/View/Modules/");
 
     // SQL:
 

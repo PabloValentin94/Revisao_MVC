@@ -38,6 +38,13 @@
 
             $this->data = $dao->Select();
 
+            foreach($this->data as $registro)
+            {
+
+                $registro->preco = number_format($registro->preco, 2, ",", ".");
+
+            }
+
         }
 
     }

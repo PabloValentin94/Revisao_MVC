@@ -16,7 +16,55 @@
 
     <body>
 
-        <pre> <?php var_dump($model) ?> </pre>
+        <div>
+
+            <table>
+                
+                <thead>
+
+                    <tr>
+
+                        <th> Nome </th>
+
+                        <th> Remover </th>
+                    
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <?php if(count($model) > 0): ?>
+
+                        <?php foreach($model as $registro): ?>
+
+                            <tr>
+
+                                <td> <?= $registro->nome ?> </td>
+
+                                <td> <a href="/product/remove?id=<?= $registro->id ?>"> <i class="bx bx-trash">  </i> </a> </td>
+
+                            </tr>
+
+                        <?php endforeach; ?>
+
+                    <?php else: ?>
+
+                        <tr>
+
+                            <td> NULL </td>
+
+                            <td> NULL </td>
+
+                        </tr>
+
+                    <?php endif; ?>
+
+                </tbody>
+
+            </table>
+
+        </div>
 
         <a href="/product"> Voltar </a>
         

@@ -40,7 +40,7 @@
 
             $model = new ProductModel();
 
-            $model->id = $_POST["id"];
+            $model->id = $_GET["id"];
 
             $model->Remove();
 
