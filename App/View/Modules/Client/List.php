@@ -6,9 +6,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="icon" type="image/x-icon" sizes="512x512" href="./View/Assets/Images/Favicon.png">
+        <link rel="icon" type="image/x-icon" sizes="512x512" href="/View/Assets/Images/Favicon.png">
 
-        <!-- <link rel="stylesheet" type="text/css" href="../Assets/CSS/Styles.css"> -->
+        <link rel="stylesheet" type="text/css" href="/View/Assets/CSS/List.css">
 
         <title> Listagem de Clientes </title>
 
@@ -16,7 +16,9 @@
 
     <body>
 
+        <pre> <?php var_dump($model) ?> </pre>
 
+        <a href="/client"> Voltar </a>
         
     </body>
 

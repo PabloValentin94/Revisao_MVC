@@ -12,7 +12,7 @@
 
     $_ENV["database"]["user"] = "root";
 
-    $_ENV["database"]["password"] = "";
+    $_ENV["database"]["password"] = "etecjau";
 
     $_ENV["database"]["db_name"] = "db_exemplo";
 

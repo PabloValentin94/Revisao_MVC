@@ -19,7 +19,7 @@
         public function Insert(ProductModel $model) : void
         {
 
-            $sql = "INSERT INTO Cliente(nome,estoque,preco) VALUES(?,?,?)";
+            $sql = "INSERT INTO Produto(nome,estoque,preco) VALUES(?,?,?)";
 
             $stmt = $this->connection->prepare($sql);
 
@@ -38,7 +38,7 @@
 
             $parametro = [":filtro" => $id];
 
-            $sql = "DELETE FROM Cliente WHERE id = :filtro";
+            $sql = "DELETE FROM Produto WHERE id = :filtro";
 
             $stmt = $this->connection->prepare($sql);
 
@@ -49,13 +49,13 @@
         public function Select() : array
         {
 
-            $sql = "SELECT * FROM Cliente";
+            $sql = "SELECT * FROM Produto";
 
             $stmt = $this->connection->prepare($sql);
 
             $stmt->execute();
 
-            return $stmt->fetchAll(DAO::FETCH_CLASS, "App\DAO\ProductModel");
+            return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\ProductModel");
 
         }
 

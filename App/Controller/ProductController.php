@@ -27,9 +27,11 @@
 
             $model->estoque = $_POST["estoque"];
 
-            $model->preco = $_POST["preco"];
+            $model->preco = str_replace(",", ".", $_POST["preco"]);
 
             $model->Save();
+
+            header("Location: /");
 
         }
 
@@ -42,6 +44,8 @@
 
             $model->Remove();
 
+            header("Location: /product/list");
+
         }
 
         public static function List() : void
@@ -51,7 +55,7 @@
 
             $model->List();
 
-            parent::Render("Product/List", $model);
+            parent::Render("Product/List", $model->data);
 
         }
 

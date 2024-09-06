@@ -1,0 +1,17 @@
+@import url("./Global.css");
+
+body {
+
+    justify-content: flex-start;
+    gap: 25px;
+
+}
+
+pre {
+
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    font-size: 15px;
+
+}

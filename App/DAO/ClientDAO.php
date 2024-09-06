@@ -57,7 +57,7 @@
 
             $stmt->execute();
 
-            return $stmt->fetchAll(DAO::FETCH_CLASS, "App\DAO\ClientModel");
+            return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\ClientModel");
 
         }
 

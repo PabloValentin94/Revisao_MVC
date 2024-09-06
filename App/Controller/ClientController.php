@@ -33,6 +33,8 @@
 
             $model->Save();
 
+            header("Location: /");
+
         }
 
         public static function Remove() : void
@@ -44,6 +46,8 @@
 
             $model->Remove();
 
+            header("Location: /client/list");
+
         }
 
         public static function List() : void
@@ -53,7 +57,7 @@
 
             $model->List();
 
-            parent::Render("Client/List", $model);
+            parent::Render("Client/List", $model->data);
 
         }
 
