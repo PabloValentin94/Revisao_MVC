@@ -2,8 +2,6 @@
 
     namespace App\Model;
 
-    use App\Model\Model;
-
     use App\DAO\ProductDAO;
 
     class ProductModel extends Model
@@ -18,7 +16,7 @@
 
             $dao = new ProductDAO();
 
-            $dao->Insert($this);
+            ($this->id == null) ? $dao->Insert($this) : $dao->Update($this);
 
         }
 
@@ -42,6 +40,31 @@
             {
 
                 $registro->preco = number_format($registro->preco, 2, ",", ".");
+
+            }
+
+        }
+
+        public function Filter(int $id) : ProductModel
+        {
+
+            $dao = new ProductDAO();
+
+            $registro = $dao->Search($id);
+
+            if($registro)
+            {
+
+                $registro->preco = number_format($registro->preco, 2, ",", ".");
+                
+                return $registro;
+
+            }
+
+            else
+            {
+
+                return new ProductModel();
 
             }
 

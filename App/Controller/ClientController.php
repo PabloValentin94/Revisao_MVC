@@ -2,8 +2,6 @@
 
     namespace App\Controller;
 
-    use App\Controller\Controller;
-
     use App\Model\ClientModel;
 
     class ClientController extends Controller
@@ -12,7 +10,16 @@
         public static function Index() : void
         {
 
-            parent::Render("Client/Save");
+            $model = new ClientModel();
+
+            if(isset($_GET["id"]))
+            {
+
+                $model = $model->Filter((int) $_GET["id"]);
+
+            }
+
+            parent::Render("Client/Save", $model);
 
         }
 

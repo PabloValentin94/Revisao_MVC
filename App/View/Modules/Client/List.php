@@ -26,6 +26,8 @@
 
                         <th> Nome Completo </th>
 
+                        <th> Editar </th>
+
                         <th> Remover </th>
                     
                     </tr>
@@ -42,6 +44,8 @@
 
                                 <td> <?= $registro->nome . " " . $registro->sobrenome ?> </td>
 
+                                <td> <a href="/client?id=<?= $registro->id ?>"> <i class="bx bx-edit">  </i> </a> </td>
+
                                 <td> <a href="/client/remove?id=<?= $registro->id ?>"> <i class="bx bx-trash">  </i> </a> </td>
 
                             </tr>
@@ -51,6 +55,8 @@
                     <?php else: ?>
 
                         <tr>
+
+                            <td> NULL </td>
 
                             <td> NULL </td>
 

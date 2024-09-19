@@ -2,8 +2,6 @@
 
     namespace App\DAO;
 
-    use App\DAO\DAO;
-
     use App\Model\ClientModel;
 
     class ClientDAO extends DAO
@@ -35,6 +33,28 @@
 
         }
 
+        public function Update(ClientModel $model) : void
+        {
+
+            $sql = "UPDATE Cliente SET nome = ?, sobrenome = ?, cpf = ?, email = ? " .
+                   "WHERE id = ?";
+
+            $stmt = $this->connection->prepare($sql);
+
+            $stmt->bindValue(1, $model->nome);
+
+            $stmt->bindValue(2, $model->sobrenome);
+
+            $stmt->bindValue(3, $model->cpf);
+
+            $stmt->bindValue(4, $model->email);
+
+            $stmt->bindValue(5, $model->id);
+
+            $stmt->execute();
+
+        }
+
         public function Delete(int $id) : void
         {
 
@@ -58,6 +78,21 @@
             $stmt->execute();
 
             return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\ClientModel");
+
+        }
+
+        public function Search(int $id) : ClientModel
+        {
+
+            $sql = "SELECT * FROM Cliente WHERE id = ?";
+
+            $stmt = $this->connection->prepare($sql);
+
+            $stmt->bindValue(1, $id);
+
+            $stmt->execute();
+
+            return $stmt->fetchObject("App\Model\ClientModel");
 
         }
 

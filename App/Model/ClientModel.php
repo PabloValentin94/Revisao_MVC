@@ -2,8 +2,6 @@
 
     namespace App\Model;
 
-    use App\Model\Model;
-
     use App\DAO\ClientDAO;
 
     class ClientModel extends Model
@@ -18,7 +16,7 @@
 
             $dao = new ClientDAO();
 
-            $dao->Insert($this);
+            ($this->id == null) ? $dao->Insert($this) : $dao->Update($this);
 
         }
 
@@ -37,6 +35,29 @@
             $dao = new ClientDAO();
 
             $this->data = $dao->Select();
+
+        }
+
+        public function Filter(int $id) : ClientModel
+        {
+
+            $dao = new ClientDAO();
+
+            $registro = $dao->Search($id);
+
+            if($registro)
+            {
+
+                return $registro;
+
+            }
+
+            else
+            {
+
+                return new ClientModel();
+
+            }
 
         }
 

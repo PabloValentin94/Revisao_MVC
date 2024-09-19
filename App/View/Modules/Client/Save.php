@@ -18,19 +18,19 @@
 
         <form action="/client/save" method="post">
 
-            <input type="hidden" name="id" id="id" inputmode="numeric" value="<?= null ?>">
+            <input type="hidden" name="id" id="id" inputmode="numeric" value="<?= $model->id ?>">
 
             <label for="nome"> Nome do Cliente: </label>
-            <input type="text" name="nome" id="nome" required>
+            <input type="text" name="nome" id="nome" value="<?= $model->nome ?>" required>
 
             <label for="sobrenome"> Sobrenome do Cliente: </label>
-            <input type="text" name="sobrenome" id="sobrenome" required>
+            <input type="text" name="sobrenome" id="sobrenome" value="<?= $model->sobrenome ?>" required>
 
             <label for="cpf"> CPF do Cliente: </label>
-            <input type="text" name="cpf" id="cpf" inputmode="numeric" required>
+            <input type="text" name="cpf" id="cpf" inputmode="numeric" value="<?= $model->cpf ?>" required>
 
             <label for="email"> E-mail do Cliente: </label>
-            <input type="email" name="email" id="email" inputmode="email" required>
+            <input type="email" name="email" id="email" inputmode="email" value="<?= $model->email ?>" required>
 
             <div>
 

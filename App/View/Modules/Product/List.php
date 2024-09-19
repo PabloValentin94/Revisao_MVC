@@ -26,6 +26,8 @@
 
                         <th> Nome </th>
 
+                        <th> Editar </th>
+
                         <th> Remover </th>
                     
                     </tr>
@@ -42,6 +44,8 @@
 
                                 <td> <?= $registro->nome ?> </td>
 
+                                <td> <a href="/product?id=<?= $registro->id ?>"> <i class="bx bx-edit">  </i> </a> </td>
+
                                 <td> <a href="/product/remove?id=<?= $registro->id ?>"> <i class="bx bx-trash">  </i> </a> </td>
 
                             </tr>
@@ -51,6 +55,8 @@
                     <?php else: ?>
 
                         <tr>
+
+                            <td> NULL </td>
 
                             <td> NULL </td>
 

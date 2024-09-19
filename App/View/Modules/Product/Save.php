@@ -18,16 +18,16 @@
 
         <form action="/product/save" method="post">
 
-            <input type="hidden" name="id" id="id" inputmode="numeric" value="<?= null ?>">
+            <input type="hidden" name="id" id="id" inputmode="numeric" value="<?= $model->id ?>">
 
             <label for="nome"> Nome do Produto: </label>
-            <input type="text" name="nome" id="nome" required>
+            <input type="text" name="nome" id="nome" value="<?= $model->nome ?>" required>
 
             <label for="estoque"> Quantidade Disponível<br>do Produto: </label>
-            <input type="number" name="estoque" id="estoque" inputmode="numeric" required>
+            <input type="number" name="estoque" id="estoque" inputmode="numeric" value="<?= $model->estoque ?>" required>
 
             <label for="preco"> Preço do Produto: </label>
-            <input type="text" name="preco" id="preco" inputmode="numeric" required>
+            <input type="text" name="preco" id="preco" inputmode="numeric" value="<?= $model->preco ?>" required>
 
             <div>
 

@@ -2,8 +2,6 @@
 
     namespace App\Controller;
 
-    use App\Controller\Controller;
-
     use App\Model\ProductModel;
 
     class ProductController extends Controller
@@ -12,7 +10,16 @@
         public static function Index() : void
         {
 
-            parent::Render("Product/Save");
+            $model = new ProductModel();
+
+            if(isset($_GET["id"]))
+            {
+
+                $model = $model->Filter((int) $_GET["id"]);
+
+            }
+
+            parent::Render("Product/Save", $model);
 
         }
 

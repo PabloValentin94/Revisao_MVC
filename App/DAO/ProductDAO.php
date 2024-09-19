@@ -2,8 +2,6 @@
 
     namespace App\DAO;
 
-    use App\DAO\DAO;
-
     use App\Model\ProductModel;
 
     class ProductDAO extends DAO
@@ -33,6 +31,25 @@
 
         }
 
+        public function Update(ProductModel $model) : void
+        {
+
+            $sql = "UPDATE Produto SET nome = ?, estoque = ?, preco = ? WHERE id = ?";
+
+            $stmt = $this->connection->prepare($sql);
+
+            $stmt->bindValue(1, $model->nome);
+
+            $stmt->bindValue(2, $model->estoque);
+
+            $stmt->bindValue(3, $model->preco);
+
+            $stmt->bindValue(4, $model->id);
+
+            $stmt->execute();
+
+        }
+
         public function Delete(int $id) : void
         {
 
@@ -56,6 +73,21 @@
             $stmt->execute();
 
             return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\ProductModel");
+
+        }
+
+        public function Search(int $id) : ProductModel
+        {
+
+            $sql = "SELECT * FROM Produto WHERE id = ?";
+
+            $stmt = $this->connection->prepare($sql);
+
+            $stmt->bindValue(1, $id);
+
+            $stmt->execute();
+
+            return $stmt->fetchObject("App\Model\ProductModel");
 
         }
 
