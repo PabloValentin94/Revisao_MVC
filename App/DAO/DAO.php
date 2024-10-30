@@ -18,7 +18,7 @@
 
             $charset = "utf8mb4";
 
-            $dsn = "mysql:host=$host;dbname=$database;charset:$charset";
+            $dsn = "mysql:host=$host;dbname=$database;charset=$charset";
 
             $this->connection = new PDO($dsn, $_ENV["database"]["user"], $_ENV["database"]["password"]);
             
